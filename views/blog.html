@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Blog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Blog Posts</h1>
+    <div id="blog-container"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch("/api/posts")
+                .then(response => response.json())
+                .then(posts => {
+                    const container = document.getElementById("blog-container");
+                    posts.forEach(post => {
+                        const postElement = document.createElement("div");
+                        postElement.classList.add("blog-post");
+                        postElement.innerHTML = `
+                            <h2>${post.title}</h2>
+                            <p><strong>By:</strong> ${post.author} | <strong>Date:</strong> ${post.date}</p>
+                            <img src="${post.image}" alt="${post.title}">
+                            <p>${post.content}</p>
+                            <hr>
+                        `;
+                        container.appendChild(postElement);
+                    });
+                })
+                .catch(error => console.error("Error loading posts:", error));
+        });
+    </script>
+</body>
+</html>

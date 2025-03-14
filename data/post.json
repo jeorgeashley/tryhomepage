@@ -1,0 +1,17 @@
+[
+    {
+      "title": "First Blog Post",
+      "author": "John Doe",
+      "date": "2025-03-14",
+      "content": "This is the first post on our blog!",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "title": "Second Blog Post",
+      "author": "Jane Doe",
+      "date": "2025-03-12",
+      "content": "Here's another post with interesting content.",
+      "image": "https://via.placeholder.com/150"
+    }
+  ]
+  
